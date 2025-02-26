@@ -3,8 +3,8 @@ import { FieldValues, SubmitHandler } from "react-hook-form";
 import BCSSelect from "../dataEntry/BCSSelect";
 import BCSInput from "../dataEntry/BCSInput";
 import { categories } from "../../constants/global";
-import { FiSearch } from "react-icons/fi";
-import { Button, Col, Row } from "antd";
+import { PiMagnifyingGlassDuotone } from "react-icons/pi";
+import { Divider } from "antd";
 
 const ProductSearch = () => {
   const categoryOptions = categories.map((item) => ({
@@ -17,34 +17,30 @@ const ProductSearch = () => {
   };
 
   return (
-    <BCSForm onSubmit={onSubmit} className="h-[40px] rounded-md bg-white px-1">
-      <Row>
-        <Col>
-          <BCSSelect
-            name="category"
-            placeholder="All Category"
-            options={categoryOptions}
-            variant="borderless"
-          />
-        </Col>
-        <Col>
-          <BCSInput
-            name="search"
-            type="search"
-            placeholder="Search your bicycle here..."
-            variant="borderless"
-          />
-        </Col>
-        <Col>
-          <Button
-            type="text"
-            htmlType="submit"
-            style={{ color: "#FA5252", backgroundColor: "transparent" }}
-          >
-            <FiSearch className="mt-2 text-lg" />
-          </Button>
-        </Col>
-      </Row>
+    <BCSForm
+      onSubmit={onSubmit}
+      className="flex h-10 w-full items-center gap-2 rounded-md bg-white px-1"
+    >
+      <BCSSelect
+        name="category"
+        placeholder="All Category"
+        options={categoryOptions}
+        variant="borderless"
+        boxStyle="mt-6"
+      />
+      <Divider type="vertical" />
+      <BCSInput
+        name="search"
+        type="search"
+        placeholder="Search your bicycle here..."
+        variant="borderless"
+      />
+      <button
+        type="submit"
+        className="cursor-pointer bg-transparent px-3 text-[#FA5252]"
+      >
+        <PiMagnifyingGlassDuotone className="text-2xl" />
+      </button>
     </BCSForm>
   );
 };

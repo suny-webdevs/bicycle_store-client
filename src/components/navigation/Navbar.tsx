@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Header } from "antd/es/layout/layout";
 import ProductSearch from "../shared/ProductSearch";
 import NavTools from "../shared/NavTools";
+import MenuDrawer from "../shared/MenuDrawer";
 
 const Navbar = () => {
   return (
@@ -16,15 +17,20 @@ const Navbar = () => {
           padding: "15px",
         }}
       >
-        <Link to={"/"} className="flex">
-          <Image
-            width={200}
-            height={80}
-            preview={false}
-            src="/logo.png"
-            alt="logo"
-          />
-        </Link>
+        <div className="flex items-center">
+          <div className="flex md:hidden">
+            <MenuDrawer />
+          </div>
+          <Link to={"/"} className="flex">
+            <Image
+              width={200}
+              height={80}
+              preview={false}
+              src="/logo.png"
+              alt="logo"
+            />
+          </Link>
+        </div>
         <div className="hidden md:flex">
           <ProductSearch />
         </div>

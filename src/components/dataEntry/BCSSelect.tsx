@@ -10,6 +10,7 @@ type TPHSelectProps = {
   disabled?: boolean;
   mode?: "multiple" | undefined;
   variant?: "outlined" | "borderless" | "filled" | "underlined";
+  boxStyle?: string;
 };
 
 const BCSSelect = ({
@@ -21,27 +22,30 @@ const BCSSelect = ({
   disabled,
   mode,
   variant,
+  boxStyle,
 }: TPHSelectProps) => {
   return (
-    <Controller
-      name={name}
-      render={({ field, fieldState: { error } }) => (
-        <Form.Item label={label}>
-          <Select
-            mode={mode}
-            placeholder={placeholder}
-            defaultValue={defaultValue}
-            style={{ width: "100%" }}
-            {...field}
-            options={options}
-            size="large"
-            disabled={disabled}
-            variant={variant}
-          />
-          {error && <small style={{ color: "red" }}>{error.message}</small>}
-        </Form.Item>
-      )}
-    />
+    <div className={boxStyle}>
+      <Controller
+        name={name}
+        render={({ field, fieldState: { error } }) => (
+          <Form.Item label={label}>
+            <Select
+              mode={mode}
+              placeholder={placeholder}
+              defaultValue={defaultValue}
+              style={{ width: "100%" }}
+              {...field}
+              options={options}
+              size="large"
+              disabled={disabled}
+              variant={variant}
+            />
+            {error && <small style={{ color: "red" }}>{error.message}</small>}
+          </Form.Item>
+        )}
+      />
+    </div>
   );
 };
 

@@ -1,11 +1,8 @@
 import { Divider } from "antd";
-import {
-  PiShoppingCartDuotone,
-  PiHeartStraightDuotone,
-  PiMagnifyingGlassDuotone,
-  PiUserCircleDuotone,
-} from "react-icons/pi";
+import { PiMagnifyingGlassDuotone, PiUserCircleDuotone } from "react-icons/pi";
 import { Link } from "react-router-dom";
+import CartDrawer from "./CartDrawer";
+import WishListDrawer from "./WishListDrawer";
 
 const NavTools = () => {
   return (
@@ -22,7 +19,7 @@ const NavTools = () => {
       </div>
       {/* Only visible on large screens */}
       <div className="hidden md:flex">
-        <Divider type="vertical" style={{ color: "#FFFFFF" }} />
+        <Divider type="vertical" style={{ backgroundColor: "lightgray" }} />
       </div>
       {/* Only visible on small screens */}
       <div className="flex gap-3 md:hidden">
@@ -35,12 +32,8 @@ const NavTools = () => {
       </div>
       {/* Visible on small and large screens */}
       <div className="flex items-center gap-3">
-        <button className="cursor-pointer text-2xl text-white md:text-4xl">
-          <PiHeartStraightDuotone />
-        </button>
-        <button className="cursor-pointer text-2xl text-white md:text-4xl">
-          <PiShoppingCartDuotone />
-        </button>
+        <WishListDrawer />
+        <CartDrawer />
       </div>
     </div>
   );

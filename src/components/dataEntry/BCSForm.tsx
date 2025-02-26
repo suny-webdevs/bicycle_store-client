@@ -1,4 +1,3 @@
-import { Form } from "antd";
 import { ReactNode } from "react";
 import {
   FieldValues,
@@ -44,9 +43,9 @@ const BCSForm = ({
 
   return (
     <FormProvider {...methods}>
-      <Form onFinish={methods.handleSubmit(submit)}>
-        <div className={className}>{children}</div>
-      </Form>
+      <form className={className} onSubmit={methods.handleSubmit(submit)}>
+        {children}
+      </form>
     </FormProvider>
   );
 };

@@ -22,7 +22,7 @@ const CartDrawer = () => {
           showZero
           style={{ backgroundColor: "white", color: "#FA5252" }}
         >
-          <PiShoppingCartDuotone className="text-2xl text-white md:text-4xl" />
+          <PiShoppingCartDuotone className="text-3xl text-white md:text-4xl" />
         </Badge>
       </button>
       <Drawer title="Review Cart" onClose={onClose} open={open}>

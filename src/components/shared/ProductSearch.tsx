@@ -19,7 +19,7 @@ const ProductSearch = () => {
   return (
     <BCSForm
       onSubmit={onSubmit}
-      className="flex h-10 w-full items-center gap-2 rounded-md bg-white px-1"
+      className="flex h-5 w-full items-center gap-2 rounded-md bg-white px-1 md:h-10"
     >
       <BCSSelect
         name="category"

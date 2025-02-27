@@ -22,7 +22,7 @@ const WishListDrawer = () => {
           showZero
           style={{ backgroundColor: "white", color: "#FA5252" }}
         >
-          <PiHeartStraightDuotone className="text-2xl text-white md:text-4xl" />
+          <PiHeartStraightDuotone className="text-3xl text-white md:text-4xl" />
         </Badge>
       </button>
       <Drawer title="Review Wishlist" onClose={onClose} open={open}>

@@ -7,6 +7,7 @@ type TPHSelectProps = {
   name: string;
   defaultValue?: string;
   options: { value: string; label: string; disabled?: boolean }[] | undefined;
+
   disabled?: boolean;
   mode?: "multiple" | undefined;
   variant?: "outlined" | "borderless" | "filled" | "underlined";
@@ -37,7 +38,6 @@ const BCSSelect = ({
               style={{ width: "100%" }}
               {...field}
               options={options}
-              size="large"
               disabled={disabled}
               variant={variant}
             />

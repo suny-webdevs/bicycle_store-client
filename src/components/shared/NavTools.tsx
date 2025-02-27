@@ -1,8 +1,9 @@
-import { Divider } from "antd";
+import { Divider, Popover } from "antd";
 import { PiMagnifyingGlassDuotone, PiUserCircleDuotone } from "react-icons/pi";
 import { Link } from "react-router-dom";
 import CartDrawer from "./CartDrawer";
 import WishListDrawer from "./WishListDrawer";
+import ProductSearch from "./ProductSearch";
 
 const NavTools = () => {
   return (
@@ -23,10 +24,12 @@ const NavTools = () => {
       </div>
       {/* Only visible on small screens */}
       <div className="flex gap-3 md:hidden">
-        <button className="cursor-pointer text-2xl text-white md:text-3xl">
-          <PiMagnifyingGlassDuotone />
-        </button>
-        <button className="cursor-pointer text-2xl text-white md:text-3xl">
+        <Popover content={<ProductSearch />} placement="bottom">
+          <button className="cursor-pointer text-3xl text-white md:text-3xl">
+            <PiMagnifyingGlassDuotone />
+          </button>
+        </Popover>
+        <button className="cursor-pointer text-3xl text-white md:text-3xl">
           <PiUserCircleDuotone />
         </button>
       </div>

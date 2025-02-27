@@ -1,17 +1,16 @@
+import { MenuItemType } from "antd/es/menu/interface";
 import { ReactNode } from "react";
 
 export type TPath = {
   path: string;
   element: ReactNode;
 };
-export type TMenu =
-  | {
-      key: string;
-      label: ReactNode;
-      icon?: ReactNode;
-      children?: TMenu[];
-    }
-  | undefined;
+
+export type TMenuItem = Pick<MenuItemType, "key" | "label" | "icon">;
+
+export type TMenu = TMenuItem & {
+  children?: TMenu[];
+};
 
 export type TRouteElements = {
   name: string;

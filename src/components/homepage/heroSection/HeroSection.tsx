@@ -9,7 +9,7 @@ import subBannerTwo from "../../../assets/homepage/sub-banner-2.jpeg";
 
 const HeroSection = () => {
   return (
-    <div className="grid grid-cols-1 gap-5 md:grid-cols-4">
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-4 md:gap-7">
       {/* Carousel */}
       <div className="md:col-span-3">
         <Carousel
@@ -36,7 +36,7 @@ const HeroSection = () => {
         </Carousel>
       </div>
       {/* Sub banner */}
-      <div className="grid grid-rows-2 gap-5">
+      <div className="grid grid-rows-2 gap-5 md:gap-8">
         {/* Sub banner 1 */}
         <SubBannerCard
           intro="Braking Systems"

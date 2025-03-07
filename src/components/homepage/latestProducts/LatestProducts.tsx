@@ -1,6 +1,7 @@
 import { useGetAllBicyclesQuery } from "../../../redux/features/bicycles/bicycleApi";
 import { TBicycle } from "../../../interface/global";
 import ProductCard from "../../cards/ProductCard";
+import SectionTitle from "../../shared/SectionTitle";
 
 const LatestProducts = () => {
   const {
@@ -15,7 +16,7 @@ const LatestProducts = () => {
 
   return (
     <div>
-      <h1 className="mb-6 text-3xl font-black">Latest Products</h1>
+      <SectionTitle title="Latest products" />
       <div className="grid h-full grid-cols-1 border border-gray-200 md:grid-cols-5">
         {bicycles?.data?.map((item: Partial<TBicycle>) => {
           // console.log("item", item);

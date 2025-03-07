@@ -6,6 +6,7 @@ import foldingBike from "../../../assets/homepage/folding-bike.jpeg";
 import bmxBike from "../../../assets/homepage/bmx-bike.jpeg";
 import cruiserBike from "../../../assets/homepage/cruiser-bike.jpeg";
 import CategoryCard from "../../cards/CategoryCard";
+import SectionTitle from "../../shared/SectionTitle";
 
 const ShopByCategories = () => {
   const categories = [
@@ -41,12 +42,7 @@ const ShopByCategories = () => {
 
   return (
     <div>
-      <h1
-        style={{ fontWeight: 600 }}
-        className="mb-6 text-center text-3xl font-black text-gray-700 uppercase"
-      >
-        Shop By Categories
-      </h1>
+      <SectionTitle title="shop by category" />
       <div className="grid grid-cols-1 border border-gray-200 md:grid-cols-7">
         {categories.map((item, index) => {
           return <CategoryCard key={index} item={item} />;

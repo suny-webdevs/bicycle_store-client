@@ -1,5 +1,5 @@
 import HeroSection from "../components/homepage/heroSection/HeroSection";
-import LatestProducts from "../components/homepage/popularProducts/LatestProducts";
+import LatestProducts from "../components/homepage/latestProducts/LatestProducts";
 import ShopByCategories from "../components/homepage/shopByCategories/ShopByCategories";
 // import TrendingProducts from "../components/homepage/trendingProducts/TrendingProducts";
 

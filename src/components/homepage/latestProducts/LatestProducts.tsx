@@ -1,6 +1,6 @@
 import { useGetAllBicyclesQuery } from "../../../redux/features/bicycles/bicycleApi";
 import { TBicycle } from "../../../interface/global";
-import ProductCard from "../../shared/ProductCard";
+import ProductCard from "../../cards/ProductCard";
 
 const LatestProducts = () => {
   const {
@@ -8,7 +8,6 @@ const LatestProducts = () => {
     isFetching,
     isLoading,
   } = useGetAllBicyclesQuery(undefined);
-  console.log("Bicycles", bicycles);
 
   if (isFetching || isLoading) {
     return <h1 className="text-3xl font-bold">Loading...</h1>;

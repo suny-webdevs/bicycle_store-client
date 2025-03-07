@@ -27,6 +27,8 @@ const CartDrawer = () => {
       </button>
       <Drawer title="Review Cart" onClose={onClose} open={open}>
         <p>Bicycles here</p>
+
+        {/* 👇 Redux list 👇 */}
       </Drawer>
     </>
   );

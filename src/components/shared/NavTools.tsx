@@ -11,11 +11,11 @@ const NavTools = () => {
       {/* Only visible on large screens */}
       <div className="hidden md:flex">
         <Link to={"/login"}>
-          <span className="text-md font-semibold text-white">Login</span>
+          <span className="text-md text-white">Login</span>
         </Link>
         <span className="text-md mx-2 text-white">/</span>
         <Link to={"/register"}>
-          <span className="text-md font-semibold text-white">Register</span>
+          <span className="text-md text-white">Register</span>
         </Link>
       </div>
       {/* Only visible on large screens */}

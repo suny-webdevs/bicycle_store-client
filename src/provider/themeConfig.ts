@@ -1,6 +1,11 @@
 const theme = {
   token: {
     colorPrimary: "#FA5252",
+    components: {
+      Menu: {
+        itemPaddingInline: 60,
+      },
+    },
   },
 };
 

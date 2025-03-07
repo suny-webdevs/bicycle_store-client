@@ -8,7 +8,6 @@ import {
 } from "@reduxjs/toolkit/query/react";
 import { RootState } from "../store";
 import { logout, setUser } from "../features/auth/authSlice";
-import { toast } from "sonner";
 
 const baseQuery = fetchBaseQuery({
   baseUrl: "https://bicycle-store-server-alpha.vercel.app/api",
@@ -31,12 +30,12 @@ const baseQueryWithRefreshToken: BaseQueryFn<
 > = async (args, api, extraOptions): Promise<any> => {
   let result = await baseQuery(args, api, extraOptions);
 
-  if (result?.error?.status === 404) {
-    toast.error(result?.error?.data?.message);
-  }
-  if (result?.error?.status === 403) {
-    toast.error(result?.error?.data?.message);
-  }
+  // if (result?.error?.status === 404) {
+  //   toast.error(result?.error?.data?.message);
+  // }
+  // if (result?.error?.status === 403) {
+  //   toast.error(result?.error?.data?.message);
+  // }
   if (result?.error?.status === 401) {
     //* Send Refresh
     console.log("Sending refresh token");
@@ -51,13 +50,13 @@ const baseQueryWithRefreshToken: BaseQueryFn<
 
     const data = await res.json();
 
-    if (data?.data?.accessToken) {
+    if (data?.data?.token) {
       const user = (api.getState() as RootState).auth.user;
 
       api.dispatch(
         setUser({
           user,
-          token: data.data.accessToken,
+          token: data.data.token,
         }),
       );
 

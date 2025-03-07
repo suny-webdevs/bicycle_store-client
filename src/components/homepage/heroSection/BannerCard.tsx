@@ -1,7 +1,7 @@
 import { Button } from "antd";
 import { TCarouselCardProps } from "../../../interface/homepage/homepage.type";
 
-const CarouselCard = ({
+const BannerCard = ({
   intro,
   title,
   description,
@@ -37,4 +37,4 @@ const CarouselCard = ({
   );
 };
 
-export default CarouselCard;
+export default BannerCard;

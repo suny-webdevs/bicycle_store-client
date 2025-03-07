@@ -4,6 +4,7 @@ const theme = {
     components: {
       Menu: {
         itemPaddingInline: 60,
+        itemColor: "#1E2939",
       },
     },
   },

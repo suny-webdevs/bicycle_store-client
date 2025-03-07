@@ -17,7 +17,9 @@ const ProductCard = ({ item }: TProductCardProps) => {
             <img src={image} alt={name} />
           </div>
           <div>
-            <h1 className="text-lg group-hover:text-[#FA5252]">{name}</h1>
+            <h1 className="text-lg text-gray-800 group-hover:text-[#FA5252]">
+              {name}
+            </h1>
             <p className="text-sm tracking-wider text-gray-500">
               {brand} &middot; {category}
             </p>

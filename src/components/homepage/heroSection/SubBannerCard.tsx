@@ -13,8 +13,13 @@ const SubBannerCard = ({ intro, title, image, alt }: TSubBannerCardProps) => {
       className={`group grid grid-cols-3 items-center gap-5 rounded-md bg-white px-5 py-7 md:py-2 ${alt ? "col-re" : ""}`}
     >
       <div className="col-span-2">
-        <h6 className="font-bold uppercase">{intro}</h6>
-        <h2 className="text-3xl font-black capitalize">{title}</h2>
+        <h6 className="tracking-wide text-gray-500 uppercase">{intro}</h6>
+        <h2
+          style={{ fontWeight: 500 }}
+          className="text-3xl text-gray-800 capitalize"
+        >
+          {title}
+        </h2>
         <div className="mt-3">
           <Button type="primary">Shop Now</Button>
         </div>

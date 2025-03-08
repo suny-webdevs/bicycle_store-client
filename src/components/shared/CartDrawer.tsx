@@ -2,7 +2,19 @@ import { Badge, Drawer } from "antd";
 import { useState } from "react";
 import { PiShoppingCartDuotone } from "react-icons/pi";
 
-const CartDrawer = () => {
+type CartDrawerProps = {
+  size?: string;
+  badgeColor?: string;
+  badgeColorBg?: string;
+  cartColor?: string;
+};
+
+const CartDrawer = ({
+  size = "text-4xl",
+  badgeColor = "#FA5252",
+  badgeColorBg = "white",
+  cartColor = "text-white",
+}: CartDrawerProps) => {
   const [open, setOpen] = useState(false);
 
   const showDrawer = () => {
@@ -20,9 +32,11 @@ const CartDrawer = () => {
           count={0}
           size="small"
           showZero
-          style={{ backgroundColor: "white", color: "#FA5252" }}
+          style={{ backgroundColor: badgeColorBg, color: badgeColor }}
         >
-          <PiShoppingCartDuotone className="text-3xl text-white md:text-4xl" />
+          <PiShoppingCartDuotone
+            className={`text-3xl ${cartColor} md:${size}`}
+          />
         </Badge>
       </button>
       <Drawer title="Review Cart" onClose={onClose} open={open}>

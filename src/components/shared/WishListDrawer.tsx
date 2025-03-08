@@ -2,7 +2,19 @@ import { Badge, Drawer } from "antd";
 import { useState } from "react";
 import { PiHeartStraightDuotone } from "react-icons/pi";
 
-const WishListDrawer = () => {
+type WishListDrawerProps = {
+  size?: string;
+  badgeColor?: string;
+  badgeColorBg?: string;
+  cartColor?: string;
+};
+
+const WishListDrawer = ({
+  size = "text-4xl",
+  badgeColor = "#FA5252",
+  badgeColorBg = "white",
+  cartColor = "text-white",
+}: WishListDrawerProps) => {
   const [open, setOpen] = useState(false);
 
   const showDrawer = () => {
@@ -20,9 +32,11 @@ const WishListDrawer = () => {
           count={0}
           size="small"
           showZero
-          style={{ backgroundColor: "white", color: "#FA5252" }}
+          style={{ backgroundColor: badgeColorBg, color: badgeColor }}
         >
-          <PiHeartStraightDuotone className="text-3xl text-white md:text-4xl" />
+          <PiHeartStraightDuotone
+            className={`text-3xl ${cartColor} md:${size}`}
+          />
         </Badge>
       </button>
       <Drawer title="Review Wishlist" onClose={onClose} open={open}>

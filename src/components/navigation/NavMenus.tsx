@@ -57,9 +57,19 @@ const NavMenus = () => {
             />
           </div>
           {isSticky && (
-            <div className="flex items-center gap-3 pr-5">
-              <CartDrawer />
-              <WishListDrawer />
+            <div className="flex items-center gap-5 pr-5">
+              <WishListDrawer
+                size="text-xl"
+                cartColor="text-[#FA5252]"
+                badgeColor="white"
+                badgeColorBg="#FA5252"
+              />
+              <CartDrawer
+                size="text-xl"
+                cartColor="text-[#FA5252]"
+                badgeColor="white"
+                badgeColorBg="#FA5252"
+              />
             </div>
           )}
         </div>

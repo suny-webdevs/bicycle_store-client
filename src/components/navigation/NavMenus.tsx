@@ -37,7 +37,7 @@ const NavMenus = () => {
   };
 
   return (
-    <div id="submenu">
+    <div id="submenu" className="">
       <Affix>
         <div className="flex w-[99vw] items-center justify-between bg-white">
           <div className="flex items-center">
@@ -57,7 +57,7 @@ const NavMenus = () => {
             />
           </div>
           {isSticky && (
-            <div className="flex items-center gap-5 pr-5">
+            <div className="flex w-full items-center justify-end gap-5 border-b border-gray-200 py-2 pr-5">
               <WishListDrawer
                 size="text-xl"
                 cartColor="text-[#FA5252]"

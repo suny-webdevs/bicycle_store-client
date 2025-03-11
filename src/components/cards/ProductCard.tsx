@@ -1,6 +1,7 @@
 import { Badge, Button } from "antd";
 import { Link } from "react-router-dom";
 import { TBicycle } from "../../interface/global";
+import { PiHeartStraightDuotone } from "react-icons/pi";
 
 type TProductCardProps = {
   item: Partial<TBicycle>;
@@ -31,9 +32,19 @@ const ProductCard = ({ item }: TProductCardProps) => {
             </h1>
           </div>
         </Link>
-        <Button style={{ marginTop: "1.5rem" }} type="primary" block>
-          ADD TO CART
-        </Button>
+        <div className="mt-5 grid grid-cols-4 gap-2">
+          <div className="col-span-3">
+            <Button type="primary" block>
+              ADD TO CART
+            </Button>
+          </div>
+          <div>
+            <Button
+              type="primary"
+              icon={<PiHeartStraightDuotone className="text-xl" />}
+            />
+          </div>
+        </div>
       </div>
     </Badge.Ribbon>
   );

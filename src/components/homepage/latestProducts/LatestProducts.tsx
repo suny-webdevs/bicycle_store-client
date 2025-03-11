@@ -15,7 +15,7 @@ const LatestProducts = () => {
   }
 
   return (
-    <div>
+    <div className="px-5 pt-10">
       <SectionTitle title="Latest products" />
       <div className="grid h-full grid-cols-1 border border-gray-200 md:grid-cols-5">
         {bicycles?.data?.map((item: Partial<TBicycle>) => {

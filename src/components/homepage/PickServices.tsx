@@ -1,10 +1,11 @@
+import { Divider } from "antd";
 import { FaTruckFast, FaGift } from "react-icons/fa6";
 import { GiTakeMyMoney } from "react-icons/gi";
 import { MdSupportAgent } from "react-icons/md";
 
 const PickServices = () => {
   return (
-    <div className="grid grid-cols-1 gap-10 bg-[#FA5252] px-3 py-5 md:grid-cols-4">
+    <div className="mt-10 flex flex-col items-start gap-10 bg-[#FA5252] px-3 py-5 md:flex-row md:items-center">
       <div className="flex items-center gap-3">
         <div>
           <FaTruckFast className="text-5xl text-gray-800" />
@@ -20,6 +21,12 @@ const PickServices = () => {
             To all district
           </p>
         </div>
+      </div>
+      <div className="hidden md:flex">
+        <Divider
+          style={{ borderColor: "#6A6282", height: "2.2rem" }}
+          type="vertical"
+        />
       </div>
       <div className="flex items-center gap-3">
         <div>
@@ -37,6 +44,12 @@ const PickServices = () => {
           </p>
         </div>
       </div>
+      <div className="hidden md:flex">
+        <Divider
+          style={{ borderColor: "#6A6282", height: "2.2rem" }}
+          type="vertical"
+        />
+      </div>
       <div className="flex items-center gap-3">
         <div>
           <FaGift className="text-4xl text-gray-800" />
@@ -52,6 +65,12 @@ const PickServices = () => {
             Back Returns In 7 Days
           </p>
         </div>
+      </div>
+      <div className="hidden md:flex">
+        <Divider
+          style={{ borderColor: "#6A6282", height: "2.2rem" }}
+          type="vertical"
+        />
       </div>
       <div className="flex items-center gap-3">
         <div>

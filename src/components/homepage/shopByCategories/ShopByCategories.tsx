@@ -41,7 +41,7 @@ const ShopByCategories = () => {
   ];
 
   return (
-    <div>
+    <div className="px-5 pt-10">
       <SectionTitle title="shop by category" />
       <div className="grid grid-cols-1 border border-gray-200 md:grid-cols-7">
         {categories.map((item, index) => {

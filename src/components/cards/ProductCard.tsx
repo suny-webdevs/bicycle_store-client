@@ -14,10 +14,14 @@ const ProductCard = ({ item }: TProductCardProps) => {
     <Badge.Ribbon text={inStock ? "In-Stock" : "Sold-Out"} color="#FA5252">
       <div className="group border-x border-gray-200 p-5">
         <Link to={`${import.meta.env.VITE_BASE_URL}/bicycles/${_id}`}>
-          <div className="flex h-48 items-center">
-            <img src={image} alt={name} />
+          <div className="flex h-48 w-full items-center">
+            <img
+              src={image}
+              alt={name}
+              className="size-full object-contain object-center"
+            />
           </div>
-          <div>
+          <div className="mt-10 md:mt-0">
             <h1 className="text-lg text-gray-800 group-hover:text-[#FA5252]">
               {name}
             </h1>
@@ -42,6 +46,7 @@ const ProductCard = ({ item }: TProductCardProps) => {
             <Button
               type="primary"
               icon={<PiHeartStraightDuotone className="text-xl" />}
+              block
             />
           </div>
         </div>

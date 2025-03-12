@@ -5,7 +5,7 @@ import { MdSupportAgent } from "react-icons/md";
 
 const PickServices = () => {
   return (
-    <div className="mt-10 flex flex-col items-start gap-10 bg-[#FA5252] px-3 py-5 md:flex-row md:items-center">
+    <div className="mt-10 flex flex-col items-start gap-10 bg-[#FA5252] px-5 py-5 md:flex-row md:items-center">
       <div className="flex items-center gap-3">
         <div>
           <FaTruckFast className="text-5xl text-gray-800" />

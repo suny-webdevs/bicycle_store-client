@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface ICartItem {
+interface IListItem {
   id: string;
   name: string;
   price: number;
@@ -8,23 +8,23 @@ interface ICartItem {
   image?: string;
 }
 
-interface ICartState {
-  items: ICartItem[];
+interface IListState {
+  items: IListItem[];
   totalQuantity: number;
   totalPrice: number;
 }
 
-const initialState: ICartState = {
+const initialState: IListState = {
   items: [],
   totalQuantity: 0,
   totalPrice: 0,
 };
 
-const cartSlice = createSlice({
-  name: "cart",
+const wishlistSlice = createSlice({
+  name: "wishlist",
   initialState,
   reducers: {
-    addToCart: (state, action: PayloadAction<ICartItem>) => {
+    addToList: (state, action: PayloadAction<IListItem>) => {
       const existingItem = state.items.find(
         (item) => item.id === action.payload.id,
       );
@@ -38,7 +38,7 @@ const cartSlice = createSlice({
       state.totalQuantity += action.payload.quantity;
       state.totalPrice += action.payload.price * action.payload.quantity;
     },
-    removeFromCart: (state, action: PayloadAction<string>) => {
+    removeFromList: (state, action: PayloadAction<string>) => {
       const itemIndex = state.items.findIndex(
         (item) => item.id === action.payload,
       );
@@ -49,19 +49,7 @@ const cartSlice = createSlice({
         state.items.splice(itemIndex, 1);
       }
     },
-    updateQuantity: (
-      state,
-      action: PayloadAction<{ id: string; quantity: number }>,
-    ) => {
-      const item = state.items.find((item) => item.id === action.payload.id);
-      if (item) {
-        state.totalQuantity += action.payload.quantity - item.quantity;
-        state.totalPrice +=
-          (action.payload.quantity - item.quantity) * item.price;
-        item.quantity = action.payload.quantity;
-      }
-    },
-    clearCart: (state) => {
+    clearList: (state) => {
       state.items = [];
       state.totalQuantity = 0;
       state.totalPrice = 0;
@@ -69,6 +57,5 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addToCart, removeFromCart, updateQuantity, clearCart } =
-  cartSlice.actions;
-export default cartSlice.reducer;
+export const { addToList, removeFromList, clearList } = wishlistSlice.actions;
+export default wishlistSlice.reducer;

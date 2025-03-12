@@ -1,6 +1,7 @@
 import { Badge, Drawer } from "antd";
 import { useState } from "react";
 import { PiHeartStraightDuotone } from "react-icons/pi";
+import { useAppSelector } from "../../redux/hooks";
 
 type WishListDrawerProps = {
   size?: string;
@@ -15,6 +16,7 @@ const WishListDrawer = ({
   badgeColorBg = "white",
   cartColor = "text-white",
 }: WishListDrawerProps) => {
+  const wishlist = useAppSelector((state) => state.wishlist);
   const [open, setOpen] = useState(false);
 
   const showDrawer = () => {

@@ -1,8 +1,9 @@
 import { Badge, Button, Drawer } from "antd";
 import { useState } from "react";
 import { PiShoppingCartDuotone } from "react-icons/pi";
-import { useAppSelector } from "../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import CartCard from "../cards/CartCard";
+import { clearCart } from "../../redux/features/addToCart/cartSlice";
 
 type CartDrawerProps = {
   size?: string;
@@ -17,6 +18,7 @@ const CartDrawer = ({
   badgeColorBg = "white",
   cartColor = "text-white",
 }: CartDrawerProps) => {
+  const dispatch = useAppDispatch();
   const carts = useAppSelector((state) => state.cart);
   const [open, setOpen] = useState(false);
 
@@ -26,6 +28,10 @@ const CartDrawer = ({
 
   const onClose = () => {
     setOpen(false);
+  };
+
+  const handleClearCart = () => {
+    dispatch(clearCart());
   };
 
   return (
@@ -64,6 +70,7 @@ const CartDrawer = ({
             </div>
             <div className="flex items-center gap-2">
               <Button
+                onClick={handleClearCart}
                 style={{ backgroundColor: "#1e2939" }}
                 type="primary"
                 size="large"

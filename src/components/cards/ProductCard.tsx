@@ -4,6 +4,7 @@ import { TBicycle } from "../../interface/global";
 import { PiHeartStraightDuotone } from "react-icons/pi";
 import { useAppDispatch } from "../../redux/hooks";
 import { addToCart } from "../../redux/features/addToCart/cartSlice";
+import { addToList } from "../../redux/features/addToWishlist/wishlistSlice";
 
 type TProductCardProps = {
   item: Partial<TBicycle>;
@@ -26,7 +27,17 @@ const ProductCard = ({ item }: TProductCardProps) => {
     );
   };
 
-  const handleAddToWishlist = () => {};
+  const handleAddToWishlist = () => {
+    dispatch(
+      addToList({
+        id: _id!,
+        image,
+        name: name!,
+        price: price!,
+        quantity: 1,
+      }),
+    );
+  };
 
   return (
     <div>

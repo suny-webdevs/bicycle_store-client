@@ -2,6 +2,7 @@ import { Badge, Drawer } from "antd";
 import { useState } from "react";
 import { PiHeartStraightDuotone } from "react-icons/pi";
 import { useAppSelector } from "../../redux/hooks";
+import WishlistCard from "../cards/WishlistCard";
 
 type WishListDrawerProps = {
   size?: string;
@@ -31,7 +32,7 @@ const WishListDrawer = ({
     <>
       <button onClick={showDrawer} className="flex cursor-pointer items-center">
         <Badge
-          count={0}
+          count={wishlist.items.length}
           size="small"
           showZero
           style={{ backgroundColor: badgeColorBg, color: badgeColor }}
@@ -42,7 +43,9 @@ const WishListDrawer = ({
         </Badge>
       </button>
       <Drawer title="Review Wishlist" onClose={onClose} open={open}>
-        <p>Bicycles here</p>
+        {wishlist.items.map((item) => {
+          return <WishlistCard key={item.id} item={item} />;
+        })}
       </Drawer>
     </>
   );

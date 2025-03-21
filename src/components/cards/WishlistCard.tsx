@@ -2,6 +2,7 @@ import { IoMdCloseCircle } from "react-icons/io";
 import { removeFromList } from "../../redux/features/addToWishlist/wishlistSlice";
 import { useAppDispatch } from "../../redux/hooks";
 import { Link } from "react-router-dom";
+import { toast } from "sonner";
 
 type TWishListCardProps = {
   item: {
@@ -19,14 +20,12 @@ const WishlistCard = ({ item }: TWishListCardProps) => {
 
   const handleRemoveCartItem = (id: string) => {
     dispatch(removeFromList(id));
+    toast.success("Remove item from favorite list🥺");
   };
 
   return (
-    <Link
-      to={`/bicycles/${id}`}
-      className="group flex items-center justify-between"
-    >
-      <div className="flex items-center gap-3">
+    <div className="group flex items-center justify-between">
+      <Link to={`/bicycles/${id}`} className="flex items-center gap-3">
         <div className="size-20">
           <img src={image} alt={name} className="size-full object-contain" />
         </div>
@@ -43,13 +42,13 @@ const WishlistCard = ({ item }: TWishListCardProps) => {
             </span>
           </p>
         </div>
-      </div>
+      </Link>
       <div>
         <button onClick={() => handleRemoveCartItem(id)}>
           <IoMdCloseCircle className="cursor-pointer text-xl text-[#fa5252]" />
         </button>
       </div>
-    </Link>
+    </div>
   );
 };
 

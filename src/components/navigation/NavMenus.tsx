@@ -4,7 +4,6 @@ import { categoryMenus } from "../../utils/categoryMenu";
 import { useEffect, useState } from "react";
 import { publicMenus } from "../../routes/public.routes";
 import CartDrawer from "../shared/CartDrawer";
-import WishListDrawer from "../shared/WishListDrawer";
 
 const categoryItem = [
   {
@@ -58,12 +57,12 @@ const NavMenus = () => {
           </div>
           {isSticky && (
             <div className="flex w-full items-center justify-end gap-5 border-b border-gray-200 py-2 pr-5">
-              <WishListDrawer
+              {/* <WishListDrawer
                 size="text-xl"
                 cartColor="text-[#FA5252]"
                 badgeColor="white"
                 badgeColorBg="#FA5252"
-              />
+              /> */}
               <CartDrawer
                 size="text-xl"
                 cartColor="text-[#FA5252]"

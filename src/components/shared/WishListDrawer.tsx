@@ -1,22 +1,17 @@
-import { Badge, Drawer } from "antd";
+import { Drawer } from "antd";
 import { useState } from "react";
 import { PiHeartStraightDuotone } from "react-icons/pi";
 import { useAppSelector } from "../../redux/hooks";
 import WishlistCard from "../cards/WishlistCard";
 
-type WishListDrawerProps = {
-  size?: string;
-  badgeColor?: string;
-  badgeColorBg?: string;
-  cartColor?: string;
-};
+// type WishListDrawerProps = {
+//   size?: string;
+//   badgeColor?: string;
+//   badgeColorBg?: string;
+//   cartColor?: string;
+// };
 
-const WishListDrawer = ({
-  size = "text-4xl",
-  badgeColor = "#FA5252",
-  badgeColorBg = "white",
-  cartColor = "text-white",
-}: WishListDrawerProps) => {
+const WishListDrawer = () => {
   const wishlist = useAppSelector((state) => state.wishlist);
   const [open, setOpen] = useState(false);
 
@@ -30,17 +25,11 @@ const WishListDrawer = ({
 
   return (
     <>
-      <button onClick={showDrawer} className="flex cursor-pointer items-center">
-        <Badge
-          count={wishlist.items.length}
-          size="small"
-          showZero
-          style={{ backgroundColor: badgeColorBg, color: badgeColor }}
-        >
-          <PiHeartStraightDuotone
-            className={`text-3xl ${cartColor} md:${size}`}
-          />
-        </Badge>
+      <button
+        onClick={showDrawer}
+        className="flex cursor-pointer items-center gap-2"
+      >
+        <PiHeartStraightDuotone className="text-xl" /> Wishlist
       </button>
       <Drawer title="Review Wishlist" onClose={onClose} open={open}>
         {wishlist.items.map((item) => {

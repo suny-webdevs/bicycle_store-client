@@ -16,7 +16,7 @@ const LatestProducts = () => {
 
   return (
     <div className="px-5 pt-10">
-      <SectionTitle title="Latest products" />
+      <SectionTitle title="Featured Bicycles" />
       <div className="grid h-full grid-cols-1 border border-gray-200 md:grid-cols-5">
         {bicycles?.data?.slice(0, 10).map((item: Partial<TBicycle>) => {
           return <ProductCard key={item._id} item={item} />;

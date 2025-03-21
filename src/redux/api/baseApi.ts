@@ -38,7 +38,7 @@ const baseQueryWithRefreshToken: BaseQueryFn<
   // }
   if (result?.error?.status === 401) {
     //* Send Refresh
-    console.log("Sending refresh token");
+    // console.log("Sending refresh token");
 
     const res = await fetch(
       "https://bicycle-store-server-alpha.vercel.app/api/auth/refresh-token",
@@ -72,6 +72,5 @@ const baseQueryWithRefreshToken: BaseQueryFn<
 export const baseApi = createApi({
   reducerPath: "baseApi",
   baseQuery: baseQueryWithRefreshToken,
-  tagTypes: [],
   endpoints: () => ({}),
 });

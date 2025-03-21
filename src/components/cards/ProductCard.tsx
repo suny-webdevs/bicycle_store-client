@@ -1,16 +1,19 @@
-import { Badge, Button } from "antd";
+import { Badge, Button, Tooltip } from "antd";
 import { Link } from "react-router-dom";
 import { TBicycle } from "../../interface/global";
 import { PiHeartStraightDuotone } from "react-icons/pi";
-import { useAppDispatch } from "../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { addToCart } from "../../redux/features/addToCart/cartSlice";
 import { addToList } from "../../redux/features/addToWishlist/wishlistSlice";
+import { selectCurrentUser } from "../../redux/features/auth/authSlice";
+import { toast } from "sonner";
 
 type TProductCardProps = {
   item: Partial<TBicycle>;
 };
 
 const ProductCard = ({ item }: TProductCardProps) => {
+  const user = useAppSelector(selectCurrentUser);
   const dispatch = useAppDispatch();
 
   const { image, name, price, _id, brand, category, inStock } = item;
@@ -25,9 +28,14 @@ const ProductCard = ({ item }: TProductCardProps) => {
         quantity: 1,
       }),
     );
+    toast.success("Product added to cart");
   };
 
   const handleAddToWishlist = () => {
+    if (!user) {
+      return toast.warning("Please signin for add product to wishlist!");
+    }
+
     dispatch(
       addToList({
         id: _id!,
@@ -37,6 +45,7 @@ const ProductCard = ({ item }: TProductCardProps) => {
         quantity: 1,
       }),
     );
+    toast.success("Product added to wishlist");
   };
 
   return (
@@ -116,12 +125,14 @@ const ProductCard = ({ item }: TProductCardProps) => {
               </Button>
             </div>
             <div>
-              <Button
-                onClick={handleAddToWishlist}
-                type="primary"
-                icon={<PiHeartStraightDuotone className="text-xl" />}
-                block
-              />
+              <Tooltip title="Add to favorite">
+                <Button
+                  onClick={handleAddToWishlist}
+                  type="primary"
+                  icon={<PiHeartStraightDuotone className="text-xl" />}
+                  block
+                />
+              </Tooltip>
             </div>
           </div>
         </div>

@@ -14,12 +14,12 @@ const Login = () => {
   const navigate = useNavigate();
   const [login, { isLoading }] = useLoginMutation();
 
-  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+  const onSubmit: SubmitHandler<FieldValues> = async (loginData) => {
     const toastId = toast.loading("Logging in...");
 
     try {
-      const res = await login(data);
-      const user = verifyToken(res.data.data.token);
+      const res = await login(loginData);
+      const user = verifyToken(res?.data?.data?.token);
       dispatch(setUser({ user, token: res?.data?.data?.token }));
       navigate("/");
       toast.success("Login successful", { id: toastId });

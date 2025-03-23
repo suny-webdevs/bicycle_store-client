@@ -4,19 +4,29 @@ import { Link } from "react-router-dom";
 import CartDrawer from "./CartDrawer";
 import ProductSearch from "./ProductSearch";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { logout, selectCurrentUser } from "../../redux/features/auth/authSlice";
+import {
+  logout,
+  selectCurrentUser,
+  useCurrentToken,
+} from "../../redux/features/auth/authSlice";
 import { toast } from "sonner";
 import { useGetUserProfileQuery } from "../../redux/features/user/userApi";
-import Loading from "./Loading";
 import WishListDrawer from "./WishListDrawer";
 import { IoLogOut } from "react-icons/io5";
 import { BiSolidDashboard } from "react-icons/bi";
+import {
+  startLoading,
+  stopLoading,
+} from "../../redux/features/loading/loadingSlice";
 
 const NavTools = () => {
-  const user = useAppSelector(selectCurrentUser);
   const dispatch = useAppDispatch();
-  const { data: userData, isLoading } = useGetUserProfileQuery({});
-
+  const token = useAppSelector(useCurrentToken);
+  const user = useAppSelector(selectCurrentUser);
+  const userId = user?.id;
+  const { data: userData, isLoading } = useGetUserProfileQuery(
+    userId as string,
+  );
   const handleLogout = () => {
     dispatch(logout());
     toast.success("Logged out");
@@ -49,13 +59,15 @@ const NavTools = () => {
   ];
 
   if (isLoading) {
-    return <Loading />;
+    dispatch(startLoading());
+  } else {
+    dispatch(stopLoading());
   }
 
   return (
     <div className="flex items-center gap-2">
       {/* Only visible on large screens */}
-      {user === null ? (
+      {token === null ? (
         <div className="hidden md:flex">
           <Link to={"/login"}>
             <span className="text-md text-white">Login</span>
@@ -67,11 +79,11 @@ const NavTools = () => {
         </div>
       ) : (
         <div className="size-7 cursor-pointer">
-          {userData.data?.image ? (
+          {userData?.data?.image ? (
             <Dropdown menu={{ items }} placement="bottomRight">
               <img
-                src={userData.data?.image}
-                alt={userData.data?.name}
+                src={userData?.data?.image}
+                alt={userData?.data?.name}
                 className="size-full border object-contain"
               />
             </Dropdown>

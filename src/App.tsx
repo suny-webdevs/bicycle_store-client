@@ -1,7 +1,13 @@
 import MainLayout from "./components/layout/MainLayout";
+import Loading from "./components/shared/Loading";
 
 function App() {
-  return <MainLayout />;
+  return (
+    <>
+      <Loading />
+      <MainLayout />
+    </>
+  );
 }
 
 export default App;

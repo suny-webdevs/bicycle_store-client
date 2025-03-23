@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "./features/auth/authSlice";
 import cartReducer from "./features/addToCart/cartSlice";
 import wishlistReducer from "./features/addToWishlist/wishlistSlice";
+import loadingReducer from "./features/loading/loadingSlice";
 import { baseApi } from "./api/baseApi";
 import {
   persistReducer,
@@ -43,6 +44,7 @@ export const store = configureStore({
     auth: persistedAuthReducer,
     cart: persistedCartReducer,
     wishlist: persistedWishlistReducer,
+    loading: loadingReducer,
   },
   middleware: (getDefaultMiddlewares) =>
     getDefaultMiddlewares({

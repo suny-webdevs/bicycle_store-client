@@ -34,6 +34,14 @@ const NavTools = () => {
 
   const items: MenuProps["items"] = [
     {
+      key: "about",
+      label: (
+        <div className="tracking-wide text-gray-400">
+          <p>{userData?.data?.name}</p>
+        </div>
+      ),
+    },
+    {
       key: "dashboard",
       label: (
         <Link to="/dashboard" className="flex items-center gap-2">

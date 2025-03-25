@@ -46,7 +46,7 @@ const Testimonials = () => {
   const slides = groupedArray(testimonials, 3);
 
   return (
-    <div className="mt-10">
+    <div className="my-20">
       <SectionTitle title="Customer reviews" />
       <div className="px-5 md:px-10">
         <Carousel dots={false} arrows>

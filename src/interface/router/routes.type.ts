@@ -8,9 +8,11 @@ export type TPath = {
 
 export type TMenuItem = Pick<MenuItemType, "key" | "label" | "icon">;
 
-export type TMenu = TMenuItem & {
-  children?: TMenu[];
-};
+export type TMenu =
+  | (TMenuItem & {
+      children?: TMenu[];
+    })
+  | undefined;
 
 export type TRouteElements = {
   name: string;

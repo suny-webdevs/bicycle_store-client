@@ -2,8 +2,15 @@ import { useGetAllBicyclesQuery } from "../../../redux/features/bicycles/bicycle
 import { TBicycle } from "../../../interface/global";
 import ProductCard from "../../cards/ProductCard";
 import SectionTitle from "../../shared/SectionTitle";
+import { useAppDispatch } from "../../../redux/hooks";
+import {
+  startLoading,
+  stopLoading,
+} from "../../../redux/features/loading/loadingSlice";
 
 const LatestProducts = () => {
+  const dispatch = useAppDispatch();
+
   const {
     data: bicycles,
     isFetching,
@@ -11,7 +18,9 @@ const LatestProducts = () => {
   } = useGetAllBicyclesQuery(undefined);
 
   if (isFetching || isLoading) {
-    return <h1 className="text-3xl font-bold">Loading...</h1>;
+    dispatch(startLoading());
+  } else {
+    dispatch(stopLoading());
   }
 
   return (

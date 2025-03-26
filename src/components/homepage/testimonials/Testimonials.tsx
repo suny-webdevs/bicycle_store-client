@@ -1,8 +1,7 @@
 import { Carousel, Col, Row } from "antd";
-import groupedArray from "../../utils/arrayGrouping";
-import TestimonialCard from "../cards/TestimonialCard";
-import SectionTitle from "../shared/SectionTitle";
-
+import TestimonialCard from "../../cards/TestimonialCard";
+import SectionTitle from "../../shared/SectionTitle";
+import groupedArray from "../../../utils/groupedArray";
 const testimonials = [
   {
     message:
@@ -49,13 +48,13 @@ const Testimonials = () => {
     <div className="my-20">
       <SectionTitle title="Customer reviews" />
       <div className="px-5 md:px-10">
-        <Carousel dots={false} arrows>
-          {slides.map((slideData: any[], index: number) => (
-            <div key={index}>
-              <Row gutter={[16, 16]} justify="center">
-                {slideData.map((item, index: number) => (
-                  <Col key={index} span={8}>
-                    <TestimonialCard review={item} />
+        <Carousel arrows>
+          {slides.map((group: any[], groupIndex: number) => (
+            <div key={groupIndex} className="flex justify-center space-x-4 p-4">
+              <Row gutter={[16, 16]}>
+                {group.map((review, reviewIndex) => (
+                  <Col key={reviewIndex} span={24 / 3}>
+                    <TestimonialCard review={review} />
                   </Col>
                 ))}
               </Row>

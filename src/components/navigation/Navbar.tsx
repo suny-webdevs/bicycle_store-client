@@ -31,7 +31,7 @@ const Navbar = () => {
             />
           </Link>
         </div>
-        <div className="hidden md:flex">
+        <div className="hidden md:flex md:flex-1 md:px-20">
           <ProductSearch />
         </div>
         <div>

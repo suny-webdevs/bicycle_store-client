@@ -113,9 +113,6 @@ const NavTools = () => {
             <PiMagnifyingGlassDuotone />
           </button>
         </Popover>
-        <button className="cursor-pointer text-3xl text-white md:text-3xl">
-          <PiUserCircleDuotone />
-        </button>
       </div>
       {/* Visible on small and large screens */}
       <div className="flex items-center gap-3">

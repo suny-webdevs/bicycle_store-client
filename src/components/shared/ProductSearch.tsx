@@ -1,17 +1,9 @@
 import BCSForm from "../dataEntry/BCSForm";
 import { FieldValues, SubmitHandler } from "react-hook-form";
-import BCSSelect from "../dataEntry/BCSSelect";
 import BCSInput from "../dataEntry/BCSInput";
-import { categories } from "../../constants/global";
 import { PiMagnifyingGlassDuotone } from "react-icons/pi";
-import { Divider } from "antd";
 
 const ProductSearch = () => {
-  const categoryOptions = categories.map((item) => ({
-    value: item,
-    label: item,
-  }));
-
   const onSubmit: SubmitHandler<FieldValues> = (value) => {
     console.log(value);
   };
@@ -19,21 +11,14 @@ const ProductSearch = () => {
   return (
     <BCSForm
       onSubmit={onSubmit}
-      className="flex h-5 w-full items-center gap-2 rounded-md bg-white px-1 md:h-10"
+      className="flex h-5 w-[90vw] items-center rounded bg-white px-1 md:h-10 md:w-full"
     >
-      <BCSSelect
-        name="category"
-        placeholder="All Category"
-        options={categoryOptions}
-        variant="borderless"
-        boxStyle="mt-6"
-      />
-      <Divider type="vertical" />
       <BCSInput
         name="search"
         type="search"
         placeholder="Search your bicycle here..."
         variant="borderless"
+        boxStyle="w-full"
       />
       <button
         type="submit"

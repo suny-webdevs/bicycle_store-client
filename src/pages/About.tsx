@@ -8,8 +8,14 @@ import { FaRegGrinStars, FaAngellist } from "react-icons/fa";
 import { TbBulb } from "react-icons/tb";
 import { PiUsersThreeDuotone } from "react-icons/pi";
 import { LuHeartHandshake } from "react-icons/lu";
+import { useNavigate } from "react-router-dom";
 
 const About = () => {
+  const navigate = useNavigate();
+  const handleShopBike = () => {
+    navigate("/bicycles");
+  };
+
   return (
     <div className="p-5 selection:bg-[#fa5252] selection:text-white">
       {/* About page Banner */}
@@ -32,7 +38,7 @@ const About = () => {
               rider with the perfect bike.
             </p>
           </div>
-          <Button type="primary" size="large">
+          <Button onClick={handleShopBike} type="primary" size="large">
             Shop Bikes
           </Button>
         </div>

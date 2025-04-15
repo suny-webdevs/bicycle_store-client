@@ -17,30 +17,41 @@ const About = () => {
   };
 
   return (
-    <div className="p-5 selection:bg-[#fa5252] selection:text-white">
+    <div className="container mx-auto my-10 p-5 selection:bg-[#fa5252] selection:text-white md:p-0">
       {/* About page Banner */}
-      <div className="size-full">
-        <div className="size-full">
-          <img
-            src="./team-behind-banner-1.png"
-            alt="team behind banner"
-            className="w-full object-cover"
-          />
-        </div>
-        <div className="space-y-6 p-7 md:p-10">
-          <div className="space-y-2">
-            <h2 className="text-3xl" style={{ fontWeight: 500 }}>
-              Meet the team behind your ride
-            </h2>
-            <p className="text-gray-600">
-              At BuyCycle, we're passionate about delivering high-quality
-              bicycles and exceptional service. Our mission is to inspire every
-              rider with the perfect bike.
-            </p>
+      <div className="size-screen mb-10 border-2 border-gray-100 lg:border-none">
+        <div className="grid grid-cols-1 gap-5 md:gap-10 lg:grid-cols-3 lg:gap-3">
+          <div className="grid grid-cols-1 lg:col-span-2">
+            <div className="size-full">
+              <img
+                src="./team-behind-banner-1.png"
+                alt="team behind banner"
+                className="w-full object-contain lg:h-[60vh] lg:object-cover lg:object-left"
+              />
+            </div>
+            <div className="space-y-6 p-5 md:p-10 lg:p-8">
+              <div className="space-y-2">
+                <h2 className="text-3xl" style={{ fontWeight: 500 }}>
+                  Meet the team behind your ride
+                </h2>
+                <p className="text-gray-600">
+                  At BuyCycle, we're passionate about delivering high-quality
+                  bicycles and exceptional service. Our mission is to inspire
+                  every rider with the perfect bike.
+                </p>
+              </div>
+              <Button onClick={handleShopBike} type="primary" size="large">
+                Shop Bikes
+              </Button>
+            </div>
           </div>
-          <Button onClick={handleShopBike} type="primary" size="large">
-            Shop Bikes
-          </Button>
+          <div className="hidden lg:row-span-2 lg:block lg:size-full">
+            <img
+              src="./team-behind-banner-2.png"
+              alt="team behind banner"
+              className="size-full object-cover object-left"
+            />
+          </div>
         </div>
       </div>
       {/* Facilities */}

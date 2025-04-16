@@ -6,13 +6,11 @@ export type TPath = {
   element: ReactNode;
 };
 
-export type TMenuItem = Pick<MenuItemType, "key" | "label" | "icon">;
+export type TMenuItem = Pick<MenuItemType, "key" | "label">;
 
-export type TMenu =
-  | (TMenuItem & {
-      children?: TMenu[];
-    })
-  | undefined;
+export type TMenu = TMenuItem & {
+  children?: TMenu[] | undefined;
+};
 
 export type TRouteElements = {
   name: string;

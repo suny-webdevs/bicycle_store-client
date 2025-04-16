@@ -44,22 +44,22 @@ export class Routing {
         }
       }
 
-      if (item.children) {
-        acc.push({
-          key: item.name,
-          label: item.name,
-          children: item.children.map((child) => {
-            if (child.name) {
-              return {
-                key: child.path,
-                label: (
-                  <NavLink to={`${role}/${child.path}`}>{child.name}</NavLink>
-                ),
-              };
-            }
-          }),
-        });
-      }
+      // if (item.children) {
+      //   acc.push({
+      //     key: item.name,
+      //     label: item.name,
+      //     children: item.children.map((child) => {
+      //       if (child.name) {
+      //         return {
+      //           key: child.path,
+      //           label: (
+      //             <NavLink to={`${role}/${child.path}`}>{child.name}</NavLink>
+      //           ),
+      //         };
+      //       }
+      //     }),
+      //   });
+      // }
 
       return acc;
     }, []);

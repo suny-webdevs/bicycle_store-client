@@ -1,45 +1,56 @@
 import { Input } from "antd";
-import { SizeType } from "antd/es/config-provider/SizeContext";
 import { Controller } from "react-hook-form";
 
-type TSearchBarWithCategoriesProps = {
-  type?: "text" | "search" | "url" | "password" | "email";
+const { TextArea } = Input;
+
+type TTextAreaProps = {
   name: string;
   label?: string;
   placeholder?: string;
   disabled?: boolean;
   boxStyle?: string;
-  size?: SizeType;
-  style?: Record<string, any>;
   variant?: "outlined" | "borderless" | "filled" | "underlined";
+  showCount?: boolean;
+  maxLength?: number;
+  cols?: number;
+  rows?: number;
 };
 
-const BCSInput = ({
-  type = "text",
+const BCSTextArea = ({
   name,
   label,
   placeholder,
   disabled = false,
   boxStyle,
-  size = "middle",
   variant = "outlined",
-  style,
-}: TSearchBarWithCategoriesProps) => {
+  showCount = false,
+  maxLength,
+  cols,
+  rows,
+}: TTextAreaProps) => {
   return (
     <div className={boxStyle}>
       <label htmlFor={name}>{label}</label>
       <Controller
         name={name}
         render={({ field }) => (
-          <Input
+          <TextArea
             {...field}
-            type={type}
             id={name}
+            showCount={showCount}
+            cols={cols}
+            rows={rows}
+            maxLength={maxLength}
             placeholder={placeholder}
             disabled={disabled}
-            size={size}
+            size="large"
             variant={variant}
-            style={style}
+            style={{
+              resize: "none",
+              fontSize: "1.25rem",
+              padding: "1rem",
+              borderRadius: 0,
+            }}
           />
         )}
       />
@@ -47,4 +58,4 @@ const BCSInput = ({
   );
 };
 
-export default BCSInput;
+export default BCSTextArea;

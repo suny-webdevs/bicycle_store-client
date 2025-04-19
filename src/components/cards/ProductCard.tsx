@@ -52,28 +52,30 @@ const ProductCard = ({ item }: TProductCardProps) => {
     <div>
       {!inStock ? (
         <Badge.Ribbon text="Sold-Out" color="#FA5252">
-          <div className="group border-x border-gray-200 p-5">
+          <div className="group border border-gray-200 p-5">
             <Link to={`${import.meta.env.VITE_BASE_URL}/bicycles/${_id}`}>
-              <div className="flex h-48 w-full items-center">
-                <img
-                  src={image}
-                  alt={name}
-                  className="size-full object-contain object-center"
-                />
-              </div>
-              <div className="mt-10 md:mt-0">
-                <h1 className="text-lg text-gray-800 group-hover:text-[#FA5252]">
-                  {name}
-                </h1>
-                <p className="text-sm tracking-wider text-gray-500">
-                  {brand} &middot; {category}
-                </p>
-                <h1
-                  style={{ fontWeight: 500 }}
-                  className="mt-1 text-lg font-bold text-[#FA5252]"
-                >
-                  ${price}
-                </h1>
+              <div className="space-y-7 md:space-y-10">
+                <div className="flex h-48 w-full items-center">
+                  <img
+                    src={image}
+                    alt={name}
+                    className="size-full object-contain object-center"
+                  />
+                </div>
+                <div className="">
+                  <h1 className="text-lg text-gray-800 group-hover:text-[#FA5252]">
+                    {name}
+                  </h1>
+                  <p className="text-sm tracking-wider text-gray-500">
+                    {brand} &middot; {category}
+                  </p>
+                  <h1
+                    style={{ fontWeight: 500 }}
+                    className="mt-1 text-lg font-bold text-[#FA5252] md:text-xl"
+                  >
+                    ${price}
+                  </h1>
+                </div>
               </div>
             </Link>
             <div className="mt-5 grid grid-cols-4 gap-2">
@@ -94,28 +96,30 @@ const ProductCard = ({ item }: TProductCardProps) => {
           </div>
         </Badge.Ribbon>
       ) : (
-        <div className="group border-x border-gray-200 p-5">
+        <div className="group border border-gray-200 p-5">
           <Link to={`${import.meta.env.VITE_BASE_URL}/bicycles/${_id}`}>
-            <div className="flex h-48 w-full items-center">
-              <img
-                src={image}
-                alt={name}
-                className="size-full object-contain object-center"
-              />
-            </div>
-            <div className="mt-10 md:mt-0">
-              <h1 className="text-lg text-gray-800 group-hover:text-[#FA5252]">
-                {name}
-              </h1>
-              <p className="text-sm tracking-wider text-gray-500">
-                {brand} &middot; {category}
-              </p>
-              <h1
-                style={{ fontWeight: 500 }}
-                className="mt-1 text-lg font-bold text-[#FA5252]"
-              >
-                ${price}
-              </h1>
+            <div className="space-y-7 md:space-y-10">
+              <div className="flex h-48 w-full items-center">
+                <img
+                  src={image}
+                  alt={name}
+                  className="size-full object-contain object-center"
+                />
+              </div>
+              <div className="mt-10 md:mt-0">
+                <h1 className="text-lg text-gray-800 group-hover:text-[#FA5252]">
+                  {name}
+                </h1>
+                <p className="text-sm tracking-wider text-gray-500">
+                  {brand} &middot; {category}
+                </p>
+                <h1
+                  style={{ fontWeight: 500 }}
+                  className="mt-1 text-lg font-bold text-[#FA5252] md:text-xl"
+                >
+                  ${price}
+                </h1>
+              </div>
             </div>
           </Link>
           <div className="mt-5 grid grid-cols-4 gap-2">

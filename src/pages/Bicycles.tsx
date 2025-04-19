@@ -1,4 +1,5 @@
 import ProductCard from "../components/cards/ProductCard";
+import QueryBar from "../components/shared/QueryBar";
 import { TBicycle } from "../interface/global";
 import { useGetAllBicyclesQuery } from "../redux/features/bicycles/bicycleApi";
 import {
@@ -25,8 +26,8 @@ const Bicycles = () => {
   return (
     <div className="grid grid-cols-1 gap-5 bg-gray-100 px-5 py-5 md:grid-cols-5 md:py-10">
       {/* Queries */}
-      <div className="hidden border border-gray-200 bg-white md:flex">
-        Queries
+      <div className="hidden md:block">
+        <QueryBar />
       </div>
       <div className="col-span-4 flex flex-col gap-5">
         {/* Header */}

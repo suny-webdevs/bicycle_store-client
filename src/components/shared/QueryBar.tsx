@@ -55,8 +55,14 @@ const QueryBar = () => {
       key: "3",
       label: "Brand",
       children: (
-        <div>
-          <Checkbox onChange={handleCheckbox}>In Stock</Checkbox>
+        <div className="flex flex-col gap-2">
+          {bicycleBrands.map((item, index) => {
+            return (
+              <Checkbox key={index} onChange={handleCheckbox}>
+                {item}
+              </Checkbox>
+            );
+          })}
         </div>
       ),
     },

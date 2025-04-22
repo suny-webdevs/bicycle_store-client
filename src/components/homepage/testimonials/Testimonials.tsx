@@ -42,18 +42,34 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
-  const slides = groupedArray(testimonials, 3);
+  const slidesMedium = groupedArray(testimonials, 3);
+  const slidesSmall = groupedArray(testimonials, 1);
 
   return (
     <div className="my-20">
       <SectionTitle title="Customer reviews" />
-      <div className="px-5 md:px-10">
+      <div className="hidden px-5 md:block md:px-10">
         <Carousel arrows>
-          {slides.map((group: any[], groupIndex: number) => (
+          {slidesMedium.map((group: any[], groupIndex: number) => (
             <div key={groupIndex} className="flex justify-center space-x-4 p-4">
               <Row gutter={[16, 16]}>
                 {group.map((review, reviewIndex) => (
                   <Col key={reviewIndex} span={24 / 3}>
+                    <TestimonialCard review={review} />
+                  </Col>
+                ))}
+              </Row>
+            </div>
+          ))}
+        </Carousel>
+      </div>
+      <div className="px-5 md:hidden">
+        <Carousel arrows>
+          {slidesSmall.map((group: any[], groupIndex: number) => (
+            <div key={groupIndex} className="p-4">
+              <Row gutter={[16, 16]}>
+                {group.map((review, reviewIndex) => (
+                  <Col key={reviewIndex} span={24 / 1}>
                     <TestimonialCard review={review} />
                   </Col>
                 ))}

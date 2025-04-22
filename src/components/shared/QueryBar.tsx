@@ -18,8 +18,6 @@ const QueryBar = () => {
     new Set(bicycles?.data?.map((bike) => bike.brand)),
   );
 
-  console.log(bicycleBrands);
-
   const handleCheckbox: CheckboxProps["onChange"] = (e) => {
     console.log(e.target.checked);
     console.log(e.target.value);

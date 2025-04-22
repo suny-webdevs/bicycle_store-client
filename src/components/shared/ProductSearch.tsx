@@ -2,10 +2,13 @@ import BCSForm from "../dataEntry/BCSForm";
 import { FieldValues, SubmitHandler } from "react-hook-form";
 import BCSInput from "../dataEntry/BCSInput";
 import { PiMagnifyingGlassDuotone } from "react-icons/pi";
+import { useNavigate } from "react-router-dom";
 
 const ProductSearch = () => {
+  const navigate = useNavigate();
   const onSubmit: SubmitHandler<FieldValues> = (value) => {
     console.log(value);
+    navigate(`/bicycles?search=${value?.search}`);
   };
 
   return (

@@ -26,7 +26,12 @@ const Bicycles = () => {
   return (
     <div className="grid grid-cols-1 gap-5 bg-gray-100 px-5 py-5 md:grid-cols-5 md:py-10">
       {/* Queries */}
-      <div className="hidden md:block">
+      <div className="hidden flex-col gap-5 md:flex">
+        <div className="border border-gray-200 bg-white p-2">
+          <h1 style={{ fontWeight: 500 }} className="text-xl text-gray-800">
+            Filter
+          </h1>
+        </div>
         <QueryBar />
       </div>
       <div className="col-span-4 flex flex-col gap-5">

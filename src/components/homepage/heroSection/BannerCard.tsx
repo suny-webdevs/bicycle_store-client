@@ -17,13 +17,15 @@ const BannerCard = ({
         <div className="grid-col-1 grid md:grid-cols-2">
           {/* Carousel content */}
           <div className="h-full w-full space-y-2 text-white">
-            <h6 className="font-bold uppercase md:text-lg">{intro}</h6>
-            <h1 className="text-5xl leading-16 font-bold capitalize">
+            <h6 className="font-bold uppercase md:text-lg lg:text-2xl">
+              {intro}
+            </h6>
+            <h1 className="text-5xl leading-16 font-bold capitalize md:text-6xl lg:text-8xl lg:leading-28">
               {title}
             </h1>
             {description ? <p className="">{description}</p> : ""}
             <div className="mt-5">
-              <Button variant="solid" color="danger">
+              <Button variant="solid" color="danger" size="large">
                 Shop Now
               </Button>
             </div>

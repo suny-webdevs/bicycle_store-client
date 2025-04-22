@@ -4,15 +4,14 @@ type TSubBannerCardProps = {
   intro: string;
   title: string;
   image: string;
-  alt?: boolean;
 };
 
-const SubBannerCard = ({ intro, title, image, alt }: TSubBannerCardProps) => {
+const SubBannerCard = ({ intro, title, image }: TSubBannerCardProps) => {
   return (
     <div
-      className={`group grid grid-cols-3 items-center gap-5 rounded-md bg-white px-5 py-7 md:py-2 ${alt ? "col-re" : ""}`}
+      className={`group flex flex-col-reverse gap-5 rounded-md bg-white p-5 md:p-10`}
     >
-      <div className="col-span-2">
+      <div className="">
         <h6 className="tracking-wide text-gray-500 uppercase">{intro}</h6>
         <h2
           style={{ fontWeight: 500 }}
@@ -21,12 +20,14 @@ const SubBannerCard = ({ intro, title, image, alt }: TSubBannerCardProps) => {
           {title}
         </h2>
         <div className="mt-3">
-          <Button type="primary">Shop Now</Button>
+          <Button type="primary" size="large">
+            Shop Now
+          </Button>
         </div>
       </div>
-      <div>
+      <div className="flex items-center justify-center">
         <img
-          className="size-20 scale-125 transform object-cover transition duration-300 group-hover:scale-150 group-hover:transform"
+          className="size-32 transform object-contain transition duration-300 group-hover:scale-130 group-hover:transform"
           src={image}
           alt={title}
         />
